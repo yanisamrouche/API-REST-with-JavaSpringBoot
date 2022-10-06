@@ -9,7 +9,9 @@ const myApp = {
             list: [10, 20, 30],
             movies: [],
             axios: null,
-            movie:"",
+            movie:null,
+            editable: null,
+            errors: [],
         }
     },
 
@@ -40,7 +42,7 @@ const myApp = {
             this.axios.get('/movies/'+id)
                 .then(r => {
                     console.log("show movie done");
-                    this.message = r.data;
+                    this.movie = r.data;
                 });
         },
         editMovie: function(){
@@ -62,7 +64,22 @@ const myApp = {
                     console.log("get movies done");
                     this.movies = r.data;
                 });
+        },
+        populateMovies: function (){
+            this.axios.get('/movies')
+                .then(r => {
+                    console.log("populate done");
+                    this.getMovies();
+                });
+        },
+        sumbitMovie: function (){
+            this.axios.put('/movies')
+                .then(r => {
+                    console.log("edit done");
+                    this.getMovies();
+                });
         }
+
     }
 }
 

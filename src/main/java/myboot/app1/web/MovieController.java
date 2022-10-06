@@ -42,6 +42,8 @@ public class MovieController {
 			dao.save(new Movie("Star wars 6", 2005, //
 					"Luke Skywalker est retourné parmi les siens sur la " + //
 							"planète Tatooine..."));
+			dao.save(new Movie("Star wars 7", 2008, //
+					"Luke Skywalker est..."));
 		}
 	}
 
